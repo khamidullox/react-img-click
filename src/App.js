@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+// import img from "./images/qasr.jpg";
 
 function App() {
+  let img = [
+    "./images/qasr.jpg",
+    "./images/akahon.jpg",
+    "./images/relax.jpg",
+    "./images/sakura-daraht.jpg",
+  ];
+  let [number, setNumber] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        onClick={() => {
+          if (number > 0) {
+            setNumber(number - 1);
+          }
+        }}
+      >
+        &lt; Back
+      </button>
+      <img src={img[number]} width={300}></img>
+      <button
+        onClick={() => {
+          if (number < 3) {
+            setNumber(number + 1);
+          }
+        }}
+      >
+        Next &gt;
+      </button>
     </div>
   );
 }
